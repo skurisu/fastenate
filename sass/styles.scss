@@ -1,5 +1,64 @@
-body {
-  h1 {
-    background-color: #fff;
+@import "partials/reset";
+@import "partials/global";
+
+/*-------------- override --------------*/
+
+header {
+  @media #{$small} {
+    background-image: none;
+
+    .logo {
+      background-position: left;
+    }
+  }
+}
+
+.nav_items {
+  @media #{$small} {
+    width: 100%;
+
+    li {
+      width: 30%;
+      height: 45px;
+      box-sizing: border-box;
+      display: inline-block;
+      text-align: center;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    li:nth-child(2) {
+      border-right: 2px solid $light-grey;
+      border-left: 2px solid $light-grey;
+    }
+  }
+}
+
+.content_wrapper {
+  @media #{$small} {
+  padding: 0 10px 10px 10px;
+  }
+}
+
+.box {
+  @media #{$small} {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 10px auto 0;
+    display: block;
+    float: none;
+  } 
+}
+
+footer {
+  @media #{$small} {
+    display: none;
+  }
+
+  @media #{$medium} {
+    display: none;
   }
 }
