@@ -1,33 +1,46 @@
-// when "My Boards" is clicked
-// create an xhr get request to /api/my_boards.json
-$('#boards').click(function (argument) {
+$(document).ready(function () {
+  retrieve('/api/my_boards.json');
+
+  // when "My Boards" is clicked
+  // create an xhr get request to /api/my_boards.json
+
+  // when "My Boards" is clicked
+  // create an xhr get request to /api/my_boards.json
+  $('#boards').click(function (argument) {
+    retrieve('/api/my_boards.json');
+  });
+
+
+  // when "Random" is clicked
+  // create an xhr get request to /api/random.json
+  $('#random').click(function (argument) {
+    retrieve('/api/random.json');
+  });
+
+
+  // when "Get the app" is clicked
+  // create an xhr get request to /api/get_the_app.json
+  $('#app').click(function (argument) {
+    retrieve('/api/get_the_app.json');
+  });
+
+});
+
+function retrieve (url) {
   $.getJSON (
-    '/api/my_boards.json',
+    url,
     function(data,status) {
+      $(".content_wrapper").empty();
+      
       for(var i = 0; i < data.data.children.length; i++) {
       // console.log(data.data.children[i].data.author);
       var new_box = renderBox(data.data.children[i].data);
 
       $(".content_wrapper").append(new_box);
       }
-      // console.log(data);
     }
   );
-});
-
-
-// when "Random" is clicked
-// create an xhr get request to /api/random.json
-$('#random').click(function (argument) {
-  // body...
-});
-
-
-// when "Get the app" is clicked
-// create an xhr get request to /api/get_the_app.json
-$('#app').click(function (argument) {
-  // body...
-});
+}
 
 function renderBox (article_data) {
   // create the outermost container element
@@ -98,5 +111,3 @@ function renderBox (article_data) {
   return box;
 
 }
-
-// when the page loads, trigger the event listener that is bound to "My Boards"
