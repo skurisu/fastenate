@@ -31,11 +31,9 @@ function retrieve (url) {
     url,
     function(data,status) {
       $(".content_wrapper").empty();
-      
-      for(var i = 0; i < data.data.children.length; i++) {
-      // console.log(data.data.children[i].data.author);
-      var new_box = renderBox(data.data.children[i].data);
 
+      for(var i = 0; i < data.data.children.length; i++) {
+      var new_box = renderBox(data.data.children[i].data);
       $(".content_wrapper").append(new_box);
       }
     }
@@ -102,7 +100,7 @@ function renderBox (article_data) {
   var description = $("<p>",
   {
     "class" : "description",
-    html : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptas, laboriosam veniam."
+    html : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptas, laboriosam veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptas, laboriosam veniam."
   });
   // add description to box
   box.append(description);

@@ -50,6 +50,11 @@ header {
     margin: 10px auto 0;
     display: block;
     float: none;
+
+    h2.tagline,p,ul {
+      max-height: none;
+      overflow: visible;
+    }
   } 
 }
 
